@@ -1,7 +1,8 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TodoList } from "./components/TodoList";
 import catsApi from "./api/catsApi";
+import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useField } from "./hooks/useField";
 
@@ -78,24 +79,48 @@ export function App() {
     }
   };
   return (
-    <Fragment>
-      <input placeholder="Buscar" {...search} />
-      <TodoList
-        listas={listaFiltered}
-        toggleTask={toggleTask}
-        deleteTask={deleteTaskById}
-        editTask={editTaskDescription}
-      />
-      <input ref={taskRef} type="text" placeholder="Nueva Tarea" />
-      <button onClick={handleTaskAdd}>Agregar Tarea</button>
-      <div>
-        <input {...catsnumber} type="number" placeholder="numeros" />
-        <button onClick={addTaskAleatory}>Agregar Aleatoriamente</button>
+    <div className="container py-5"> 
+      <div className="card text-dark bg-warning mb-3">
+        <div className="card-header">
+          <h3 className="card-title text-center">Lista de Tareas</h3>
+        </div>
+        <div className="card-body">
+          <div className="row g-3">
+            <div className="col-md-6">
+              <label className="form-label">Buscar Tarea</label>
+              <input className="form-control" style={{marginBottom: '1em'}} placeholder="Buscar" {...search} />
+              <TodoList
+                listas={listaFiltered}
+                toggleTask={toggleTask}
+                deleteTask={deleteTaskById}
+                editTask={editTaskDescription}
+              />
+            </div>
+            <div className="col-md-6 py-3">
+              <div className="row">
+                <div className="col-6"> 
+                  <input className="form-control" style={{marginBottom: '1em'}} ref={taskRef} type="text" placeholder="Nueva Tarea" />
+                </div>
+                <div className="col-4">
+                  <button className="btn btn-primary btn-sm" style={{marginBottom: '1em'}} onClick={handleTaskAdd}>Agregar Tarea</button>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <input className="form-control"{...catsnumber} type="number" placeholder="Numero de Aleatorios" />
+                </div>
+                <div className="col-4">
+                  <button className="btn btn-primary btn-sm" onClick={addTaskAleatory}>Agregar Aleatoriamente</button>
+                </div>
+              </div>
+              <div className="py-2">
+                <h5>Te quedan {listas.filter((task) => !task.completed).length} tareas por
+                terminar</h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        Te quedan {listas.filter((task) => !task.completed).length} tareas por
-        terminar
-      </div>
-    </Fragment>
+    </div>
   );
 }
