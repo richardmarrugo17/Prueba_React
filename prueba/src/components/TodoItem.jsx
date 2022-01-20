@@ -36,7 +36,7 @@ export function TodoItem({ lista, toggleTask, deleteTask, editTask }) {
         {!isEditing && <button className="btn btn-primary btn-sm" style={{marginLeft: '0.5em'}} onClick={handledEditTask}>Editar</button>}
         {isEditing && <button className="btn btn-primary btn-sm" style={{marginLeft: '0.5em'}} onClick={handledCancelTask}>Cancelar</button>}
         {isEditing && <button className="btn btn-success btn-sm" style={{marginLeft: '0.5em'}} onClick={handledSave}>Guardar</button>}
-        <button className="btn btn-primary btn-sm" style={{marginLeft: '0.5em'}} onClick={handleDeleteTask}>Eliminar Tarea</button>
+        <button className="btn btn-danger btn-sm" style={{marginLeft: '0.5em'}} onClick={handleDeleteTask}>Eliminar</button>
       </div>
     </li>
   );

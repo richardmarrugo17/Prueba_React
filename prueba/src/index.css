@@ -1,8 +1,7 @@
 body{
-    font: 14px "Century Gothic", Futura, sans-serif;
+    font: 15px "Century Gothic", Futura, sans-serif;
     margin: 20px;;
 }
-
 ol,
 ul{
     padding-left: 30px;
@@ -40,4 +39,7 @@ ul{
 }
 .game-info{
     margin-left: 20px;
+}
+ul {
+    list-style: none;
 }

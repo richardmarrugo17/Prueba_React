@@ -5,6 +5,7 @@ import catsApi from "./api/catsApi";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useField } from "./hooks/useField";
+import "./index.css";
 
 export function App() {
   const [listas, setListas] = useState(() => {
